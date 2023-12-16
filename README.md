@@ -169,6 +169,17 @@ DELIMITER ;
 For more insight into the dataset, the following visuals were created using tableau software.
 A bar chart that shows customers sales
 
+![bar chart](https://github.com/DannyRukks/Little-Lemon-Database-Project/assets/97890440/4029bd4d-3817-4c13-bf7e-b3c5024ddf96)
+
 A Bubble chart of sales for all customers. The chart shows the names of all customers. Once you roll over a bubble, the chart shows the name, profit and sale.
-A Bar chart that shows the sales of the Turkish, Italian and Greek cuisines.
+
+![bubble chrt](https://github.com/DannyRukks/Little-Lemon-Database-Project/assets/97890440/26191b52-0847-4151-9355-df4773d8d0ba)
+
+A comparative bar chart that shows the sales of the Turkish, Italian and Greek cuisines.
+
+![Comparative chart](https://github.com/DannyRukks/Little-Lemon-Database-Project/assets/97890440/f3c59358-a86f-4e36-95ba-c74e3edf1c05)
+
+# Conclusion
+The completion of the above tasks will have help Little Lemon in understanding their data, evaluate their sales and understand which customers they should take care of more.
+
 
