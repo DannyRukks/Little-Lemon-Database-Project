@@ -96,4 +96,71 @@ DELIMITER ;
 ```
 ![Task 6 CancelOrder Procedure result](https://github.com/DannyRukks/Little-Lemon-Database-Project/assets/97890440/0b28e4bc-8d36-49ff-a9a8-8b336ba5a2fc)
 
+### Task 7
+Little Lemon wants to populate the Bookings table of their database with some records of data. The task is to replicate the list of records in the following table by adding them to the Little Lemon booking table.
+```
+INSERT INTO bookings (BookingID, BookingDate, TableNumber, CustomerID)
+values
+(1, "2022-10-10", 5, 1),
+(2, "2022-11-12", 3, 3),
+(3, "2022-10-11", 2, 2),
+(4, "2022-10-13", 2, 1);
+```
+![Task 7 Insert into Booking Table Result](https://github.com/DannyRukks/Little-Lemon-Database-Project/assets/97890440/58f9815a-ac44-4e27-90fd-16d8b2678704)
 
+### Task 8
+Little Lemon needs to create a stored procedure called CheckBooking to check whether a table in the restaurant is already booked. Creating this procedure helps to minimize the effort involved in repeatedly coding the same SQL statements. The procedure should have two input parameters in the form of booking date and table number.
+```
+DELIMITER //
+CREATE PROCEDURE CheckBooking(Booking_date Date, Table_Number INT)
+BEGIN
+SELECT CONCAT("Table ", Table_Number, " is already booked") AS "Booking Status"
+  FROM Bookings;  
+END //
+DELIMITER ;
+CALL CheckBooking("2022-10-10", 1);
+```
+![Task 8 Result of checkbooking Procedure](https://github.com/DannyRukks/Little-Lemon-Database-Project/assets/97890440/92be455b-1c28-42d5-82e2-1b2ae293845c)
+
+### Task 9
+Little Lemon need you to create a new procedure called AddBooking to add a new table booking record. The procedure should include four input parameters in the form of the following bookings parameters: booking id, customer id, booking date and table number.
+```
+CREATE PROCEDURE AddBooking(Booking_id INT, Booking_date Date, Table_Number INT, Customer_ID INT)
+BEGIN
+INSERT INTO bookings(BookingID, BookingDate, TableNumber, CustomerID)
+VALUES(Booking_id, Booking_date, Table_Number, Customer_ID);
+SELECT "New Booking Added" AS Confirmation;    
+END //
+DELIMITER ;
+```
+![Task 10 AddBooking Procedure Result](https://github.com/DannyRukks/Little-Lemon-Database-Project/assets/97890440/bf6f90cd-95e0-458d-b9df-7db48b099224)
+
+### Task 10
+Little Lemon needs to create a new procedure called UpdateBooking that they can use to update existing bookings in the booking table. The procedure should have two input parameters in the form of booking id and booking date. It must also include an UPDATE statement inside the procedure.
+```
+DELIMITER //
+CREATE PROCEDURE UpdateBooking(Booking_id INT, Booking_date Date)
+BEGIN
+UPDATE bookings
+SET BookingDate = Booking_date
+WHERE BookingID = Booking_id;
+SELECT CONCAT("Booking ", Booking_id, " updated") AS Confirmation;     
+END //
+DELIMITER ;
+```
+![Task 11 UpdateBooking Procedure Result](https://github.com/DannyRukks/Little-Lemon-Database-Project/assets/97890440/c4be140d-82e6-40c9-a0ad-9c8d1f0f945a)
+
+### Task 11
+Little Lemon need you to create a new procedure called CancelBooking that they can use to cancel or remove a booking. The procedure should have one input parameter in the form of booking id. It must also include a DELETE statement inside the procedure.
+```
+DELIMITER //
+CREATE PROCEDURE CancelingBooking(Booking_id INT)
+BEGIN
+DELETE FROM
+bookings
+WHERE BookingID = Booking_id;
+SELECT CONCAT("Booking ", Booking_id, " is cancelled") AS Confirmation;    
+END //
+DELIMITER ;
+```
+![Task 12 CancelingBooking Procedure Result](https://github.com/DannyRukks/Little-Lemon-Database-Project/assets/97890440/7339239f-4590-4b46-9e7a-3fe90dce7b31)
