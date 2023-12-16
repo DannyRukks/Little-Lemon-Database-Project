@@ -164,3 +164,11 @@ END //
 DELIMITER ;
 ```
 ![Task 12 CancelingBooking Procedure Result](https://github.com/DannyRukks/Little-Lemon-Database-Project/assets/97890440/7339239f-4590-4b46-9e7a-3fe90dce7b31)
+
+# Data Visualization with Tableau
+For more insight into the dataset, the following visuals were created using tableau software.
+A bar chart that shows customers sales
+
+A Bubble chart of sales for all customers. The chart shows the names of all customers. Once you roll over a bubble, the chart shows the name, profit and sale.
+A Bar chart that shows the sales of the Turkish, Italian and Greek cuisines.
+
