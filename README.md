@@ -52,6 +52,37 @@ WHERE MenuID = ANY
 	   FROM Orders
 	  WHERE Quantity > 2);
 ```
-
+### Task 4
+Little Lemon needs to create a procedure that displays the maximum ordered quantity in the Orders table. Creating this procedure will allow Little Lemon to reuse the logic implemented in the procedure easily without retyping the same code over again and again to check the maximum quantity.
+```
+CREATE PROCEDURE GetMaxQuantity()
+SELECT MAX(Quantity) AS "Max Quantity in Order"
+  FROM Orders;
+```
+### Task 5
+Little Lemon needs to help them to create a prepared statement called GetOrderDetail. This prepared statement will help to reduce the parsing time of queries. It will also help to secure the database from SQL injections.
+```
+PREPARE GetOrderDetail FROM
+'SELECT OrderID, Quantity, TotalCost
+  FROm Orders
+  WHERE CustomerID = ?';
+  
+SET @Customer_ID = 2;
+EXECUTE GetOrderDetail USING @Customer_ID;
+```
+### Task 6
+Create a stored procedure called CancelOrder. Little Lemon want to use this stored procedure to delete an order record based on the user input of the order id. Creating this procedure will allow Little Lemon to cancel any order by specifying the order id value in the procedure parameter without typing the entire SQL delete statement.   
+```
+DELIMITER //
+CREATE PROCEDURE CancelOrder(Order_id int)
+BEGIN
+DELETE FROM
+Orders
+WHERE Orderid = Order_id;
+SELECT CONCAT("Order ", Order_id, " is cancelled") AS Confirmation
+FROM Orders;
+END //
+DELIMITER ;
+```
 
 
